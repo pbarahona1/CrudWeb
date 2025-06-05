@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Hoja de estilo de pico css-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <!--Hoja de estilo propia-->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--El modal/dialog aparece frente al contenido-->
+    <dialog id="mdAgregar" open="">
+        <article>
+            <header>
+                <a href="#" class="close" id="btnCerrar"></a>
+                <h3>Agregar registro</h3>
+            </header>
+
+            <form id="frmAgregar">
+                <input type="text" id="txtNombre" placeholder="nombre" required>
+                <input type="text" id="txtApellido" placeholder="apellido" required>
+                <input type="email" id="txtEmail" placeholder="Correo Electronico" required>
+
+                <button type="submit" class="contrast">Guardar</button>
+            </form>
+        </article>
+    </dialog>
+</body>
+</html>
