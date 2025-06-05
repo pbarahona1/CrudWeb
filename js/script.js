@@ -40,3 +40,35 @@ function MostrarDatos(datos){
 }
 
 ObtenerIntegrantes();
+
+
+
+
+//Procesos para agregar un nuevo integrante
+const modal = document.getElementById("mdAgregar");//Cuadro de dialogo
+const btnAgregar = document.getElementById("btnAgregar");//Boton para agregar
+const btnCerrar = document.getElementById("btnCerrar");//Boton para cerrar el popup
+
+btnAgregar.addEventListener("click", ()=>{
+    modal.showModal(); //Abrir el modal al hacer clic en el botón
+});
+
+btnCerrar.addEventListener("click", ()=>{
+    modal.close();
+});
+
+//Agregar nuevo integrante desde el formulario
+document.getElementById("frmAgregar").addEventListener("submit", async e=> {
+    e.preventDefault(); //"e" representa a "submit. Evita que el formulario se envie de un solo"
+
+    //Capturar los valores del formulario
+    const nombre = document.getElementById("txtNombre").Value.trim();
+    const apellido = document.getElementById("txtApellido").Value.trim();
+    const correo = document.getElementById("txtEmail").Value.trim();
+
+    //Validacion basica
+    if(!nombre || !apellido || !correo){
+        alert("Ingrese los valores correctamente");
+        return; //Para evitar que el codigo se siga ejecutando
+    }
+})
