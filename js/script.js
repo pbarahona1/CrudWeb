@@ -32,7 +32,7 @@ function MostrarDatos(datos){
                 <td>${integrante.correo}</td>
                 <td>
                     <button>Editar</button>
-                    <button>Eliminar</button>
+                    <button onClick="EliminarPersona(${integrante.id})">Eliminar</button>
                 </td>
             </tr>
         `;
@@ -92,6 +92,25 @@ document.getElementById("frmAgregar").addEventListener("submit", async e=> {
         ObtenerIntegrantes();
     }
     else{
+        //En caso de que la API devuelva un codigo diferente  a 200-299
         alert("EL registro no pudo ser eniado");
     }
+
+
 })
+
+
+//Funcion para eliminar registro 
+ async function EliminarPersona(id){//Ponemos async para poder poner el await en el fetch
+    const confirmacion = confirm("¿Realmente deseas eliminar el registro?");
+
+    //Validamos si el usuario si escogio borrar
+    if(confirmacion){
+        await fetch(`${API_URL}/${id}`, {
+            method: "DELETE"
+        });
+
+        //Recargar la tabla
+        ObtenerIntegrantes();
+    }
+}
